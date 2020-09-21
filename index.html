@@ -1,0 +1,351 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Kareem's Movie Search Engine</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" type="image/x-icon" href="img/Logo/KMSE-favicon.ico" />
+
+    <link rel="stylesheet" href="public/css/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="css/fontAwesome/fontAwesome.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Kanit:100,200,300,400,500,600,700,800,900"
+      rel="stylesheet"
+    />
+
+    <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+  </head>
+
+  <body>
+    <!-- Nav -->
+    <nav>
+      
+      <div class="logo">
+        <a href="index.html">K<em>MSE</em></a>
+        
+      </div>
+      <div class="search-bar-div" id="search-bar-div">
+        <form action="#" id="search-bar-form">
+          <div class="search-container">
+            <input type="text" class="search-input" id="search-bar" placeholder="Search..." oninput="showResults()">
+            <div class="search"></div>
+          </div>
+        </form>
+        
+      </div>
+      
+      <div class="menu-icon" style="">
+        <span></span>
+      </div>
+<!--User Menu when user logs in-->
+      <div class="user-menu" style="display: none;">
+        <a href="">
+        <img src="img/avatars/avatar (1).png" alt="">
+        <!-- <p>kareem__ismail</p> -->
+        <div class="dropdown-content" id="dropdown-content">
+          <ul class="dropdown-list">
+            <li class="dropdown-item">
+              Avatar
+            </li>
+            <li class="dropdown-item">
+              Logout
+            </li>
+          </ul>
+  
+        </div>
+      </a>
+      
+      </div>
+      <!--End of User Menu when user logs in-->
+    </div>
+    </nav>
+<!-- End of Nav -->
+
+    <div id="video-container">
+      <div class="video-overlay" id="video-overlay"></div>
+      
+      <div class="video-content" id="video-content">
+        <div class="inner" id="inner">
+          
+          
+          <img src="img/Logo/apple-touch-icon.png" alt="">
+          <div id="banner-p">
+          <p style="font-size: 30px;"><b>Kareem</b>'s Movie Search Engine</p>
+          <p style="font-size: 14px; padding-bottom: 50px;">Powered by <b>TMDB</b></p>
+          <!-- Button trigger modal-->
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalRelatedContent">Launch
+  modal</button> -->
+
+        </div>
+        
+         
+          
+        </div>
+        
+      </div>
+      
+      <video autoplay="" loop="" muted id="bg-video">
+        <source src="https://www.youtube.com/watch?v=CZp6HjD8_sE" type="video/mp4" />
+      </video>
+   
+    </div>
+  
+    <!--No Search Result-->
+ <div id="no-search-result" class="no-search-result">
+  <div class="container">
+    <h1>No Results for <b>Joker</b></h1>
+  </div>
+</div>
+<!--End of No Search Result-->
+
+   <!--Search Result Grid-->
+   <div class="full-screen-grid" id="search-result" style="background-color: black; display: none; padding-top:120px;">
+   <div class="container-fluid" id="search-result-container">
+   </div>
+</div>
+  <!-- End of Search Result Grid-->
+
+  <!--Top Netflix Slider-->
+  
+  
+
+   
+    <h1 class="grid-header">Top-Rated</h1>
+    <hr/>
+
+    <div class="grid-row">
+      <div class="grid-column" id="grid-top">
+        
+        
+      </div>
+    </div>
+<!--End of Top Netflix Slider-->
+
+<!--Popular Netflix Slider-->
+
+<h1 class="grid-header" style="padding-top: 100px;">Popular</h1>
+<hr/>
+<div class="grid-row">
+  <div class="grid-column" id="grid-popular">
+    
+    
+  </div>
+</div>
+<!--End of Popular Netflix Slider-->
+
+
+
+<!--Footer-->
+    <footer>
+      <div class="container-fluid">
+        <div class="col-md-12">
+          <p>Copyright &copy; 2020 KMSE | Designed by Kareem Ismail</p>
+        </div>
+      </div>
+    </footer>
+<!--End of Footer-->
+
+
+
+
+   
+<!--Menu Dropdown-->
+<section class="overlay-menu">
+  <div class="container">
+    <div class="row">
+      <div class="main-menu">
+        <ul>
+          <li>
+            <div id="signin" style="font-size: 22px">Sign-In <i class="fas fa-sign-in-alt"></i></div>
+          </li>
+          <li id="signin-form" style="display: none;">
+            <form action="">
+              <fieldset>
+                <input
+                  name="username"
+                  type="text"
+                  class="form-control"
+                  id="username-signin"
+                  placeholder="Your username..."
+                  required=""
+                  style="width: 250px; margin: auto;"
+                />
+              </fieldset>
+              <fieldset style="margin-top: 15px">
+                <input
+                  name="password"
+                  type="password"
+                  class="form-control"
+                  id="email"
+                  placeholder="Your password..."
+                  required=""
+                  style="width: 250px; margin: auto;"
+                />
+                
+              </fieldset>
+              <fieldset style="margin-top: 15px; margin-bottom: 10px">
+                <button
+                  type="submit"
+                  id="form-submit"
+                  class="btn"
+                  style="color: black"
+                >
+                  Sign-In
+                </button>
+              </fieldset>
+              <a href="" style="font-size: 13px"
+                >I don't have an account yet.</a
+              >
+              <br />
+              <a href="#" onclick="swal('Email Sent!', 'Check your email, a link to change your password was sent.');" style="font-size: 13px">I forgot my password.</a>
+            </form>
+          </li>
+          <li>
+            <div id="signup" style="font-size: 22px">Sign-up <i class="fas fa-user-plus"></i></div>
+          </li>
+          <li id="signup-form" style="display: none;">
+            <form action="/register" method="post">
+              <fieldset>
+                <input
+                  name="username"
+                  type="text"
+                  class="form-control"
+                  id="username"
+                  placeholder="Your username..."
+                  required=""
+                  style="width: 250px; margin: auto;"
+                />
+              </fieldset>
+              <fieldset style="margin-top: 15px">
+                <input
+                  name="email"
+                  type="text"
+                  class="form-control"
+                  id="email"
+                  placeholder="Your email..."
+                  required=""
+                  style="width: 250px; margin: auto;"
+                />
+              </fieldset>
+              <fieldset style="margin-top: 15px">
+                <input
+                  name="password"
+                  type="password"
+                  class="form-control"
+                  id="email"
+                  placeholder="Your password..."
+                  required=""
+                  style="width: 250px; margin: auto;"
+                />
+                
+              </fieldset>
+              <fieldset style="margin-top: 15px">
+                <input
+                  name="re_password"
+                  type="password"
+                  class="form-control"
+                  id="email"
+                  placeholder="Retype password..."
+                  required=""
+                  style="width: 250px; margin: auto;"
+                />
+                
+              </fieldset>
+              <fieldset style="margin-top: 10px;">
+                <h4>Choose an Avatar:</h4>
+                <label>
+                  <input type="radio" name="avatar">
+                  <img src="https://i.ibb.co/HdZJQgV/avatar-1.png">
+                
+                </label>
+                <label>
+                  <input type="radio" name="avatar">
+                  <img src="https://i.ibb.co/2WfpSsG/avatar-2.png">
+                </label>
+                <label>
+                  <input type="radio" name="avatar">
+                  <img src="https://i.ibb.co/wSHx68P/avatar-3.png">
+                </label>
+                <label>
+                  <input type="radio" name="avatar">
+                  <img src="https://i.ibb.co/W5QcG9M/avatar-4.png">
+                </label>
+                <label>
+                  <input type="radio" name="avatar" value="small">
+                  <img src="https://i.ibb.co/dp1xtNP/avatar-5.png">
+                </label>
+                <label>
+                  <input type="radio" name="avatar" value="small">
+                  <img src="https://i.ibb.co/3hPnqpx/avatar-6.png">
+                </label>
+                <label>
+                  <input type="radio" name="avatar" value="small">
+                  <img src="https://i.ibb.co/VB15Ryx/avatar-7.png">
+                </label>
+               
+                
+                
+              </fieldset>
+              <fieldset style="margin-top: 15px; margin-bottom: 10px">
+                <button
+                  type="submit"
+                  id="form-submit"
+                  class="btn"
+                  style="color: black"
+                >
+                  Submit
+                </button>
+              </fieldset>
+              <br />
+              <a href="#" onclick="swal('Email Sent!', 'Check your email, a link to change your password was sent.');" style="font-size: 13px">I forgot my password.</a>
+            </form>
+          </li>
+        </ul>
+        <p>Become a Member to Make a List of your favorite movies!</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!--End of Menu Dropdown-->
+
+
+<!--Modal: modalRelatedContent-->
+<div class="modal fade right"  id="modalRelatedContent" tabindex="-1" role="dialog"
+  aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="false">
+  <div class="modal-dialog modal-side modal-bottom-right modal-notify modal-info" role="document" id="modalRelatedContent">
+    <!--Content-->
+    
+    <!--/.Content-->
+  </div>
+</div>
+<!--Modal: modalRelatedContent-->
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+      window.jQuery ||
+        document.write(
+          '<script src="js/vendor/jquery-1.11.2.min.js"><\/script>'
+        );
+    </script>
+
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/app.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Sweet Alert : https://sweetalert.js.org/guides/ -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  </body>
+</html>
